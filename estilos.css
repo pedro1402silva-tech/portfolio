@@ -132,3 +132,21 @@ width: 100%;
   width: 55%;
   margin-right: center;
 }
+.linha {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.coluna {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.coluna img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}

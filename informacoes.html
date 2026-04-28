@@ -2,19 +2,192 @@
 <html lang="pt-pt"> 
 <head>
     <meta charset="UTF-8">
-    <title>Informações</title>
-    <link rel="stylesheet" href="estilos.css">
+    <title>Contactos - N0aH</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #00B4D8;  /* Azul caraíbas */
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin: 30px 0 20px;
+            color: #caf0f8;
+        }
+
+        .labubu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .labubu li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            background: #0077b6;
+            border-radius: 30px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .labubu li a:hover {
+            background: #03045e;
+            color: white;
+        }
+
+        /* Card de contactos */
+        .contactos-card {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #0077b6;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: left;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 1px solid #caf0f8;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 10px;
+            border-bottom: 1px solid #caf0f8;
+        }
+
+        .contacto-item:last-child {
+            border-bottom: none;
+        }
+
+        .contacto-icone {
+            font-size: 28px;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        .contacto-info {
+            flex: 1;
+        }
+
+        .contacto-info strong {
+            display: block;
+            font-size: 18px;
+            color: #caf0f8;
+        }
+
+        .contacto-info a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .contacto-info a:hover {
+            color: #caf0f8;
+            text-decoration: underline;
+        }
+
+        .redes-sociais {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .redes-sociais a {
+            color: #fff;
+            background: #03045e;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+
+        .redes-sociais a:hover {
+            background: #caf0f8;
+            color: #03045e;
+        }
+
+        p {
+            text-align: center;
+            margin: 20px 0;
+            color: #caf0f8;
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-        <h1>Contacto</h1> 
-    </div>
- <ul class="labubu">
+    <div class="container">
+        <h1>Contactos</h1> 
+        
+        <ul class="labubu">
             <li><a href="index.html">Início</a></li>
             <li><a href="trabalhos.html">Trabalhos</a></li>
             <li><a href="informacoes.html">Contactos</a></li>
             <li><a href="cv_pedrosilva25.pdf" target="_blank">Download CV</a></li>
-     </ul>
-<h2>Informações</h2>
-<p> </p>
+        </ul>
+
+        <h2>Informações de Contacto</h2>
+
+        <div class="contactos-card">
+            <div class="contacto-item">
+                <div class="contacto-icone">📧</div>
+                <div class="contacto-info">
+                    <strong>Email</strong>
+                    <a href="mailto:n0ah@email.com">n0ah@email.com</a>
+                </div>
+            </div>
+            
+            <div class="contacto-item">
+                <div class="contacto-icone">📱</div>
+                <div class="contacto-info">
+                    <strong>Telemóvel</strong>
+                    <a href="tel:+351912345678">+351 916 616 461</a>
+                </div>
+            </div>
+            
+            <div class="contacto-item">
+                <div class="contacto-icone">📍</div>
+                <div class="contacto-info">
+                    <strong>Localização</strong>
+                    <span>Serzedelo, Portugal</span>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="redes-sociais">
+            <a href="https://www.instagram.com/_noah_pho.to_">Instagram</a>
+            <a href="https://www.behance.net/gallery/200763435/Portfolio/modules/1138242251">Behance</a>
+        </div>
+
+        <p>📌 Disponível para projetos e colaborações</p>
+    </div>
 </body>
+</html>
