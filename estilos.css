@@ -8,8 +8,9 @@
 }
 
 body {
+    background-image: url("imagens/imagem16.png");
     font-family: 'Inter', sans-serif;
-    background-color: white;
+    background-color: rgb(2, 38, 86);
     color: #333;
     line-height: 1.6;
     max-width: 1200px;
@@ -20,7 +21,7 @@ body {
 }
 
 a {
-    color: rgb(22, 22, 175);
+    color: rgb(15, 15, 151);
     text-decoration: none;
 }
 
@@ -158,7 +159,7 @@ width: 100%;
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #00B4D8;  /* Azul caraíbas */
+            background-color: #043062;  /* Azul caraíbas */
             color: #fff;
             line-height: 1.6;
         }
@@ -195,7 +196,7 @@ width: 100%;
             text-decoration: none;
             color: #fff;
             padding: 10px 20px;
-            background: #0077b6;
+            background: #032f47;
             border-radius: 30px;
             transition: 0.3s;
             font-weight: bold;
@@ -214,7 +215,7 @@ width: 100%;
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #00B4D8;  /* Azul caraíbas */
+            background-color: #062662;  /* Azul caraíbas */
             color: #fff;
             line-height: 1.6;
         }
