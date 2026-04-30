@@ -3,108 +3,8 @@
 <head>
     <title>Trabalhos</title>
     <meta charset="UTF-8">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #00B4D8;  /* Azul caraíbas */
-            color: #fff;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 36px;
-            margin-bottom: 30px;
-            color: #fff;
-        }
-
-        .labubu {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            list-style: none;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .labubu li a {
-            text-decoration: none;
-            color: #fff;
-            padding: 10px 20px;
-            background: #0077b6;
-            border-radius: 30px;
-            transition: 0.3s;
-            font-weight: bold;
-        }
-
-        .labubu li a:hover {
-            background: #03045e;
-            color: white;
-        }
-
-        /* Layout das imagens em colunas */
-        .linha {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .coluna {
-            flex: 1;
-            min-width: 200px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .coluna img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            transition: 0.3s;
-            border: 3px solid #caf0f8;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .coluna img:hover {
-            transform: scale(1.02);
-            border-color: #03045e;
-        }
-
-        /* Responsivo */
-        @media (max-width: 800px) {
-            .linha {
-                flex-direction: column;
-            }
-            .coluna {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            .coluna img {
-                flex: 1;
-                min-width: 150px;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .coluna {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="Trabalhos.css">
+   
 </head>
 <body>
     <div class="container">
@@ -114,12 +14,13 @@
             <li><a href="index.html">Início</a></li>
             <li><a href="informacoes.html">Contactos</a></li>
             <li><a href="trabalhos.html">Trabalhos</a></li>
+            <li><a href="Blog.html">Blog</a></li>
             <li><a href="cv_pedrosilva25.pdf" target="_blank">Download CV</a></li>
         </ul>
         
         <div class="linha">
             <div class="coluna">
-                <img src="imagem1.jpeg" alt="Trabalho 1">
+                <img src="imagens/imagem1.jpeg" alt="Trabalho 1">
                 <img src="imagem2.jpeg" alt="Trabalho 2">
                 <img src="imagem3.jpeg" alt="Trabalho 3">
                 <img src="imagem4.jpeg" alt="Trabalho 4">

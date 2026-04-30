@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="pt-pt"> 
-<head>
-    <meta charset="UTF-8">
-    <title>N0aH - Portfólio</title>
-    <link rel="stylesheet" href="estilos.css">
-    <style>
-        * {
+  
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+  
+  * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -98,32 +94,3 @@
         #bio p:last-child {
             margin-bottom: 0;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>N0aH</h2>
-        <h1>Portfólio N0aH</h1>
-        
-        <ul class="labubu">
-            <li><a href="index1.html">Início</a></li>
-            <li><a href="trabalhos.html">Trabalhos</a></li>
-            <li><a href="informacoes.html">Contactos</a></li>
-            <li><a href="Blog.html">Blog</a></li>
-            <li><a href="cv_pedrosilva25.pdf" target="_blank">Download CV</a></li>
-        </ul>
-        
-        <div id="imagem1">
-            <img src="imagem11.jpg" alt="Descrição da imagem">
-        </div>
-        
-        <p class="destaque">Design de Comunicação · Fotografia · Arte Digital</p>
-        
-        <div id="bio">
-            <p>Sou um designer e fotógrafo apaixonado pela estética Bauhaus e pelo minimalismo funcional. O meu trabalho explora a intersecção entre forma geométrica e comunicação visual, criando peças que são simultaneamente belas e utilitárias.</p>
-            <p>PÁGINAS WEB.</p>
-            <p>Estou a aprender</p>
-        </div>
-    </div>
-</body>
-</html>
