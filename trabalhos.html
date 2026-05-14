@@ -1,46 +1,396 @@
 <!DOCTYPE html>
 <html lang="pt-pt">
 <head>
-    <title>Trabalhos</title>
+    <title>Trabalhos - Galeria</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="Trabalhos.css">
-   
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.7/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.7/lib/addons/p5.sound.min.js"></script>
+    <script src="mySketch.js"></script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+            background: transparent;
+            min-height: 100vh;
+        }
+
+        #mySketch {
+            z-index: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .labubu {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            list-style: none;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .labubu li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 12px 28px;
+            background: #000;
+            border-radius: 40px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .labubu li a:hover {
+            background: #222;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.5);
+        }
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.6);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Add a pointer when hovering over the thumbnail images */
+        .cursor {
+            cursor: pointer;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 45%;
+            width: auto;
+            padding: 16px;
+            margin-top: -50px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            -webkit-user-select: none;
+            background-color: rgba(0,0,0,0.6);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 20px;
+            border-radius: 3px 0 0 3px;
+        }
+        
+        .prev {
+            left: 20px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #caf0f8;
+        }
+
+        /* Number text (1/6 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 14px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        /* Container for image text */
+        .caption-container {
+            text-align: center;
+            background-color: #000;
+            padding: 10px 16px;
+            color: white;
+            margin-top: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Row of thumbnails */
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        /* Six columns side by side (ajustado para responsivo) */
+        .column {
+            flex: 1 1 100px;
+            max-width: 100px;
+            padding: 0 4px;
+        }
+
+        /* Add a transparency effect for thumbnail images */
+        .demo {
+            opacity: 0.6;
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .active, .demo:hover {
+            opacity: 1;
+            border-color: #fff;
+            transform: scale(1.05);
+        }
+
+        /* Imagem principal */
+        .main-img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+            .column {
+                flex: 1 1 70px;
+                max-width: 70px;
+            }
+            .prev, .next {
+                padding: 10px;
+                font-size: 18px;
+            }
+            .numbertext {
+                top: 15px;
+                left: 15px;
+                font-size: 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .column {
+                flex: 1 1 50px;
+                max-width: 50px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Trabalhos</h1> 
-        
-        <ul class="labubu">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="informacoes.html">Contactos</a></li>
-            <li><a href="trabalhos.html">Trabalhos</a></li>
-            <li><a href="Blog.html">Blog</a></li>
-            <li><a href="cv_pedrosilva25.pdf" target="_blank">Download CV</a></li>
-        </ul>
-        
-        <div class="linha">
-            <div class="coluna">
-                <img src="imagens/imagem1.jpeg" alt="Trabalho 1">
-                <img src="imagens/imagem2.jpeg" alt="Trabalho 2">
-                <img src="imagens/imagem3.jpeg" alt="Trabalho 3">
-                <img src="imagens/imagem4.jpeg" alt="Trabalho 4">
+
+<div id="mySketch"></div>
+
+<div class="container">
+    <h1>Trabalhos</h1> 
+    
+    <ul class="labubu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="informacoes.html">Contactos</a></li>
+        <li><a href="trabalhos.html">Trabalhos</a></li>
+        <li><a href="cv_pedrosilva25.pdf" target="_blank">Download CV</a></li>
+    </ul>
+
+    <!-- SLIDESHOW GALLERY - CÓDIGO DO W3SCHOOLS ADAPTADO -->
+    <div class="slideshow-container">
+
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides">
+            <div class="numbertext">1 / 13</div>
+            <img src="imagens/imagem1.jpeg" style="width:100%" class="main-img" alt="Trabalho 1 - Design Gráfico">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">2 / 13</div>
+            <img src="imagens/imagem2.jpeg" style="width:100%" class="main-img" alt="Trabalho 2 - Fotografia">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">3 / 13</div>
+            <img src="imagens/imagem3.jpeg" style="width:100%" class="main-img" alt="Trabalho 3 - Ilustração">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">4 / 13</div>
+            <img src="imagens/imagem4.jpeg" style="width:100%" class="main-img" alt="Trabalho 4 - Branding">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">5 / 13</div>
+            <img src="imagens/imagem6.jpeg" style="width:100%" class="main-img" alt="Trabalho 5 - Web Design">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">6 / 13</div>
+            <img src="imagens/imagem7.jpeg" style="width:100%" class="main-img" alt="Trabalho 6 - Fotografia de Produto">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">7 / 13</div>
+            <img src="imagens/imagem8.JPG" style="width:100%" class="main-img" alt="Trabalho 7 - Pós-produção">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">8 / 13</div>
+            <img src="imagens/imagem9.JPG" style="width:100%" class="main-img" alt="Trabalho 8 - Logotipo">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">9 / 13</div>
+            <img src="imagens/imagem10.JPG" style="width:100%" class="main-img" alt="Trabalho 9 - Editorial">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">10 / 13</div>
+            <img src="imagens/imagem12.jpg" style="width:100%" class="main-img" alt="Trabalho 10 - Packaging">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">11 / 13</div>
+            <img src="imagens/imagem13.jpg" style="width:100%" class="main-img" alt="Trabalho 11 - Tipografia">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">12 / 13</div>
+            <img src="imagens/imagem14.jpg" style="width:100%" class="main-img" alt="Trabalho 12 - Cartaz">
+        </div>
+
+        <div class="mySlides">
+            <div class="numbertext">13 / 13</div>
+            <img src="imagens/imagem15.jpg" style="width:100%" class="main-img" alt="Trabalho 13 - Arte Digital">
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+        <!-- Caption text -->
+        <div class="caption-container">
+            <p id="caption"></p>
+        </div>
+
+        <!-- Thumbnail images -->
+        <div class="row">
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem1.jpeg" style="width:100%" onclick="currentSlide(1)" alt="Trabalho 1 - Design Gráfico">
             </div>
-            <div class="coluna">
-                <img src="imagens/imagem6.jpeg" alt="Trabalho 5">
-                <img src="imagens/imagem7.jpeg" alt="Trabalho 6">
-                <img src="imagens/imagem8.JPG" alt="Trabalho 7">
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem2.jpeg" style="width:100%" onclick="currentSlide(2)" alt="Trabalho 2 - Fotografia">
             </div>
-            <div class="coluna">
-                <img src="imagens/imagem9.JPG" alt="Trabalho 8">
-                <img src="imagens/imagem10.JPG" alt="Trabalho 9">
-                <img src="imagens/imagem12.jpg" alt="Trabalho 10">
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem3.jpeg" style="width:100%" onclick="currentSlide(3)" alt="Trabalho 3 - Ilustração">
             </div>
-            <div class="coluna">
-                <img src="imagens/imagem13.jpg" alt="Trabalho 11">
-                <img src="imagens/imagem14.jpg" alt="Trabalho 12">
-                <img src="imagens/imagem15.jpg" alt="Trabalho 13">
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem4.jpeg" style="width:100%" onclick="currentSlide(4)" alt="Trabalho 4 - Branding">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem6.jpeg" style="width:100%" onclick="currentSlide(5)" alt="Trabalho 5 - Web Design">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem7.jpeg" style="width:100%" onclick="currentSlide(6)" alt="Trabalho 6 - Fotografia de Produto">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem8.JPG" style="width:100%" onclick="currentSlide(7)" alt="Trabalho 7 - Pós-produção">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem9.JPG" style="width:100%" onclick="currentSlide(8)" alt="Trabalho 8 - Logotipo">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem10.JPG" style="width:100%" onclick="currentSlide(9)" alt="Trabalho 9 - Editorial">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem12.jpg" style="width:100%" onclick="currentSlide(10)" alt="Trabalho 10 - Packaging">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem13.jpg" style="width:100%" onclick="currentSlide(11)" alt="Trabalho 11 - Tipografia">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem14.jpg" style="width:100%" onclick="currentSlide(12)" alt="Trabalho 12 - Cartaz">
+            </div>
+            <div class="column">
+                <img class="demo cursor" src="imagens/imagem15.jpg" style="width:100%" onclick="currentSlide(13)" alt="Trabalho 13 - Arte Digital">
             </div>
         </div>
     </div>
+</div>
+
+<script>
+    // ===== JAVASCRIPT DO SLIDESHOW (adaptado do W3Schools) =====
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        let captionText = document.getElementById("caption");
+        
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
+        
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
+
 </body>
 </html>
