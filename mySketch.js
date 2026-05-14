@@ -1,3 +1,4 @@
+// mySketch.js
 let c1X, c1Y, c2X, c2Y, c3X, c3Y, c4X, c4Y, c5X, c5Y, c6X, c6Y, c7X, c7Y;
 
 let vel1, vel2, vel3, vel4, vel5, vel6, vel7;
@@ -12,7 +13,10 @@ let dirX7, dirY7;
 
 let cor1, cor2, cor3, cor4, cor5, cor6, cor7;
 
+let slideIndex = 1;
+
 function setup() {
+	 showSlides(slideIndex);
 
 	let canv = createCanvas(windowWidth, windowHeight);
 	canv.parent('mySketch');
@@ -231,14 +235,37 @@ function draw() {
 	fill(cor7);
 	circle(c7X, c7Y, 75);
 }
+    // ===== JAVASCRIPT DO SLIDESHOW (adaptado do W3Schools) =====
+    //let slideIndex = 1;
+    //showSlides(slideIndex);
 
-let slideIndex = 1;
-    showSlides(slideIndex);
-
+    // Next/previous controls
     function plusSlides(n) {
         showSlides(slideIndex += n);
     }
 
+    // Thumbnail image controls
     function currentSlide(n) {
         showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        let captionText = document.getElementById("caption");
+        
+        if (n > slides.length) { slideIndex = 1; }
+        if (n < 1) { slideIndex = slides.length; }
+        
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        captionText.innerHTML = dots[slideIndex - 1].alt;
     }
