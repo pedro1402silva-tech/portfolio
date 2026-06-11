@@ -378,7 +378,6 @@
             border: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* Row of thumbnails */
         .row {
             display: flex;
             flex-wrap: wrap;
@@ -387,14 +386,12 @@
             margin-top: 20px;
         }
 
-        /* Six columns side by side (ajustado para responsivo) */
         .column {
             flex: 1 1 100px;
             max-width: 100px;
             padding: 0 4px;
         }
 
-        /* Add a transparency effect for thumbnail images */
         .demo {
             opacity: 0.6;
             width: 100%;
@@ -409,7 +406,6 @@
             transform: scale(1.05);
         }
 
-        /* Imagem principal */
         .main-img {
             width: 50%;
             border-radius: 16px;
@@ -417,7 +413,6 @@
             border: 1px solid rgba(255,255,255,0.3);
         }
 
-        /* Responsivo */
         @media (max-width: 768px) {
             h1 {
                 font-size: 36px;
@@ -597,7 +592,6 @@
             canv.parent('mySketch');
             background(0);
 
-            // POSIÇÕES
             c1X = 10;
             c1Y = 10;
             c2X = 200;
@@ -613,7 +607,6 @@
             c7X = 900;
             c7Y = 500;
 
-            // VELOCIDADES
             vel1 = 1;
             vel2 = 2;
             vel3 = 3;
@@ -622,7 +615,6 @@
             vel6 = 2.8;
             vel7 = 3.5;
 
-            // DIREÇÕES
             dirX1 = 1;
             dirY1 = -1;
             dirX2 = -1;
@@ -638,7 +630,6 @@
             dirX7 = -1;
             dirY7 = -1;
 
-            // CORES
             cor1 = color(255, 0, 0);
             cor2 = color(0, 255, 0);
             cor3 = color(0, 0, 255);
@@ -651,7 +642,6 @@
         function draw() {
             background(0, 0, 0, 50);
 
-            // MOVIMENTO
             c1X += vel1 * dirX1;
             c1Y += vel1 * dirY1;
             c2X += vel2 * dirX2;
@@ -667,7 +657,6 @@
             c7X += vel7 * dirX7;
             c7Y += vel7 * dirY7;
 
-            // BORDAS
             if (c1X > width || c1X < 0) dirX1 *= -1;
             if (c1Y > height || c1Y < 0) dirY1 *= -1;
             if (c2X > width || c2X < 0) dirX2 *= -1;
@@ -683,7 +672,6 @@
             if (c7X > width || c7X < 0) dirX7 *= -1;
             if (c7Y > height || c7Y < 0) dirY7 *= -1;
 
-            // COLISÕES
             if (dist(c1X, c1Y, c2X, c2Y) < 70) {
                 cor1 = color(random(255), random(255), random(255));
                 cor2 = color(random(255), random(255), random(255));
@@ -709,7 +697,6 @@
                 dirY1 *= -1;
             }
 
-            // DESENHAR
             fill(cor1);
             circle(c1X, c1Y, 80);
             fill(cor2);
@@ -810,16 +797,13 @@
                 <source src="video1.mp4" type="video/mp4">
         </div>
 
-        <!-- Next and previous buttons -->
         <a class="prev" onclick="plusSlides(-1)">❮</a>
         <a class="next" onclick="plusSlides(1)">❯</a>
 
-        <!-- Caption text -->
         <div class="caption-container">
             <p id="caption"></p>
         </div>
 
-        <!-- Thumbnail images -->
         <div class="row">
             <div class="column">
                 <img class="demo cursor" src="imagens/imagem1.jpeg" style="width:100%" onclick="currentSlide(1)" alt="Trabalho 1 - Design Gráfico">
@@ -904,7 +888,6 @@
     </div>
 
     <script>
-        // SKETCH P5.JS - BOLAS COLORIDAS
         let c1X, c1Y, c2X, c2Y, c3X, c3Y, c4X, c4Y, c5X, c5Y, c6X, c6Y, c7X, c7Y;
         let vel1, vel2, vel3, vel4, vel5, vel6, vel7;
         let dirX1, dirY1, dirX2, dirY2, dirX3, dirY3, dirX4, dirY4, dirX5, dirY5, dirX6, dirY6, dirX7, dirY7;
@@ -915,7 +898,6 @@
             canv.parent('mySketch');
             background(0);
 
-            // POSIÇÕES
             c1X = 10;
             c1Y = 10;
             c2X = 200;
@@ -982,7 +964,6 @@
             c7X += vel7 * dirX7;
             c7Y += vel7 * dirY7;
 
-            // BORDAS
             if (c1X > width || c1X < 0) dirX1 *= -1;
             if (c1Y > height || c1Y < 0) dirY1 *= -1;
             if (c2X > width || c2X < 0) dirX2 *= -1;
@@ -998,7 +979,6 @@
             if (c7X > width || c7X < 0) dirX7 *= -1;
             if (c7Y > height || c7Y < 0) dirY7 *= -1;
 
-            // COLISÕES
             if (dist(c1X, c1Y, c2X, c2Y) < 70) {
                 cor1 = color(random(255), random(255), random(255));
                 cor2 = color(random(255), random(255), random(255));
@@ -1024,7 +1004,6 @@
                 dirY1 *= -1;
             }
 
-            // DESENHAR
             fill(cor1);
             circle(c1X, c1Y, 80);
             fill(cor2);
